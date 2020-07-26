@@ -6,12 +6,17 @@
 </template>
 
 <script>
+import axios from 'axios'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  async mounted() {
+    const { data } = await axios.get(`${process.env.VUE_APP_DRINKS_API}/api/events`);
+    console.log(data);
   }
 }
 </script>
