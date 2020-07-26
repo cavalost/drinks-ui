@@ -1,24 +1,37 @@
 # drinks_ui
 
-## Project setup
+## Factsheet
+
+| **Category**              | **Value**                                 |
+| ------------------------- | ---------------------------------------- |
+| **Contact**               | claudina.avalos@opendeusto.es
+| **Language / Framework**  | Node, Vue2
+| **Deployment type**       | CircleCI + AWS(S3 + CloudFront)
+| **Production URL**     | [https://d2tpv6i2lq638o.cloudfront.net/index.html](https://d2tpv6i2lq638o.cloudfront.net/index.html)|
+## Configuration
+
+Configuration is via the following environment variables:
+
+| Env var      | Example      | Purpose                   |
+| ------------ | ------------ | ------------------------- |
+| `VUE_APP_DRINKS_API` | `https://drinks-api-clau.herokuapp.com` | 
+| `VUE_APP_GMAPS_TOKEN` | `-` | 
+
+
+## Requirements
+Node >= 8
+
+## How to run locally
 ```
-npm install
+npm run start
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## How to deploy
+Each commit in master will trigger CircleCI
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Project description
 
-### Lints and fixes files
-```
-npm run lint
-```
+Table with events that we recorded in the cron job and fetch them through our API.
+Users can sort and filter events based on a date range, or by address or event name.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+IF the user clicks in any row, a modal will be displayed with the map location, guests and comments.

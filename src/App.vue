@@ -1,33 +1,57 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="nav">
+      <img
+        class="align-content-center"
+        alt="Cocktail"
+        src="./assets/cocktail-icon.png"
+      />
+      <img alt="Cofee" src="./assets/coffee-icon.png" />
+      <img alt="Comment" src="./assets/comment-green.png" />
+      <h1 class="vue-title mt-5">EVENTS</h1>
+      <data-table
+        :lines="lines"
+        :start-date="startDate"
+        :end-date="endDate"
+        @changeDates="changeDates"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-import HelloWorld from './components/HelloWorld.vue'
+import DataTable from "@/components/DataTable";
 
 export default {
-  name: 'App',
+  name: "app",
   components: {
-    HelloWorld
+    DataTable
   },
-  async mounted() {
-    const { data } = await axios.get(`${process.env.VUE_APP_DRINKS_API}/api/events`);
-    console.log(data);
+  data() {
+    return {
+      lines: [],
+      startDate: "",
+      endDate: ""
+    };
+  },
+  async created() {
+    const { data } = await this.axios.get(
+      `${process.env.VUE_APP_DRINKS_API}/api/events`
+    );
+    this.lines = data;
+  },
+  methods: {
+    changeDates({ startDate, endDate }) {
+      this.startDate = startDate;
+      this.endDate = endDate;
+      this.lines = [...this.lines];
+    }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background: #e5cb90;
 }
 </style>
