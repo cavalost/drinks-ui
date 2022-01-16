@@ -4,7 +4,7 @@
 
 | **Category**              | **Value**                                 |
 | ------------------------- | ---------------------------------------- |
-| **Contact**               | claudina.avalos@opendeusto.es
+| **Contact**               | @cavalost
 | **Language / Framework**  | Node, Vue2
 | **Deployment type**       | CircleCI + AWS(S3 + CloudFront)
 | **Production URL**     | [https://d2tpv6i2lq638o.cloudfront.net/index.html](https://d2tpv6i2lq638o.cloudfront.net/index.html)|
